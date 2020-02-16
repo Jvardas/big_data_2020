@@ -37,7 +37,7 @@ def init_test():
 
         test_df = pre_process(test_df)
 
-        test_df.to_csv('c:\\Users\\Konio\\Desktop\\asssignment_big_data\\train_clean.csv')
+        test_df.to_csv('c:\\Users\\Konio\\Desktop\\asssignment_big_data\\test_clean.csv')
 
     return test_df
 
@@ -50,7 +50,8 @@ if __name__ == "__main__":
     sb_pl = svm_bow.make_pipeline()
     # performing evaluation for svm using BoW
     sb_test_acc, sb_test_pre, sb_test_rec, sb_test_f1 = svm_bow.evaluate(df, sb_pl)
-    svm_bow.predict('', sb_pl)
+    svm_bow.fit(df, sb_pl)
+    svm_bow.predict(test_df, sb_pl)
     
      
 

@@ -32,6 +32,10 @@ def evaluate(df, pl):
     
     return test_acc, test_pre, test_rec, test_f1 
 
+def fit(train_df, pl):
+    pl.fit(train_df['Clean_Data', train_df['Label']])
+
 def predict(test_df, pl):
-    pass
+    test_df['Predicted'] = pl.predict(test_df)
+    return test_df
 
